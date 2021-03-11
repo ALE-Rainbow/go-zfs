@@ -79,6 +79,14 @@ func setString(field *string, value string) {
 	*field = v
 }
 
+func setBool(field *string, value string) {
+	v := false
+	if value == "yes" {
+		v = true
+	}
+	*field = v
+}
+
 func setUint(field *uint64, value string) error {
 	var v uint64
 	if value != "-" {
@@ -135,6 +143,8 @@ func (ds *Dataset) parseLine(line []string) error {
 	if err = setUint(&ds.Usedbydataset, line[12]); err != nil {
 		return err
 	}
+
+	setBool(&ds.Mounted, line[13])
 
 	return nil
 }
