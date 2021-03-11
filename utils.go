@@ -79,7 +79,7 @@ func setString(field *string, value string) {
 	*field = v
 }
 
-func setBool(field *string, value string) {
+func setBool(field *bool, value string) {
 	v := false
 	if value == "yes" {
 		v = true
